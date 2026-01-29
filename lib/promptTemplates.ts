@@ -215,6 +215,9 @@ Genera:
 - Métricas concretas cuando hay datos
 - Marcar como "Por validar" cuando faltan datos
 - No prometer sin evidencia
+- **COMPROMISO PROGRESIVO**: El cliente solo se compromete al siguiente paso. OpsFocus (M0) es el único compromiso firme. Las fases posteriores tienen estimaciones indicativas.
+- El tono del resumen ejecutivo debe transmitir: "el primer paso es OpsFocus, de bajo riesgo, que ofrece visibilidad completa antes de comprometerse con inversiones mayores"
+- Las métricas de impacto para fases M1-M3 y M4 deben marcarse como "indicativas"
 
 # OUTPUT ESPERADO
 JSON con esta estructura:
@@ -257,6 +260,16 @@ JSON con esta estructura:
       "impact": "Alto" | "Medio" | "Bajo",
       "probability": "Alta" | "Media" | "Baja",
       "mitigation": "string"
+    }
+  ],
+  "visionStatement": "string - Descripción del viaje Focus → Intelligence → Scale",
+  "progressiveCommitmentNote": "string - Nota explicando que solo OpsFocus es compromiso firme",
+  "phaseNarratives": [
+    {
+      "phase": "focus" | "intelligence" | "scale",
+      "title": "string",
+      "description": "string",
+      "certainty": "firme" | "indicativo"
     }
   ]
 }

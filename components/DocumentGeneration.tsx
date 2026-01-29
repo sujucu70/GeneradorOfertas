@@ -134,6 +134,38 @@ export default function DocumentGeneration({ project, setProject, onNext, onBack
           <div className={styles.tabContent}>
             {activeTab === 'propuesta' && (
               <div className={styles.documentPreview}>
+                {/* Vision Timeline */}
+                {proposalData.phaseNarratives && proposalData.phaseNarratives.length > 0 && (
+                  <>
+                    <h3>Visión del Viaje Operativo</h3>
+                    <div className={styles.visionTimeline}>
+                      {proposalData.phaseNarratives.map((phase, i) => (
+                        <div
+                          key={i}
+                          className={`${styles.phaseCard} ${
+                            phase.certainty === 'firme' ? styles.phaseCardFirme : styles.phaseCardIndicativo
+                          }`}
+                        >
+                          <span className={`${styles.phaseBadge} ${
+                            phase.certainty === 'firme' ? styles.badgeFirme : styles.badgeIndicativo
+                          }`}>
+                            {phase.certainty === 'firme' ? 'Precio firme' : 'Rango indicativo'}
+                          </span>
+                          <h4>{phase.title}</h4>
+                          <p>{phase.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+
+                {/* Progressive Commitment Callout */}
+                {proposalData.progressiveCommitmentNote && (
+                  <div className={styles.commitmentCallout}>
+                    <p><strong>Compromiso Progresivo:</strong> {proposalData.progressiveCommitmentNote}</p>
+                  </div>
+                )}
+
                 <h3>Resumen Ejecutivo</h3>
                 <div className={styles.content}>
                   {proposalData.executiveSummary}
@@ -195,9 +227,18 @@ export default function DocumentGeneration({ project, setProject, onNext, onBack
                   <div className={styles.sowSection}>
                     <h4>1. Alcance del Proyecto</h4>
                     <ul>
-                      <li>Beyond OpsFocus (M0): Análisis y priorización</li>
-                      <li>Beyond OpsIntelligence (M1-M3): {project.opsIntelligenceData.length} cápsulas</li>
-                      <li>Beyond OpsScale (M4): Operación productiva</li>
+                      <li>
+                        Beyond OpsFocus (M0): Análisis y priorización
+                        <span className={`${styles.scopeBadge} ${styles.scopeCommitted}`}>Comprometido</span>
+                      </li>
+                      <li>
+                        Beyond OpsIntelligence (M1-M3): {project.opsIntelligenceData.length} cápsulas
+                        <span className={`${styles.scopeBadge} ${styles.scopeEstimated}`}>Estimado</span>
+                      </li>
+                      <li>
+                        Beyond OpsScale (M4): Operación productiva
+                        <span className={`${styles.scopeBadge} ${styles.scopeProjected}`}>Proyectado</span>
+                      </li>
                     </ul>
                   </div>
 

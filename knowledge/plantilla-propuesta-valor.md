@@ -154,11 +154,30 @@ Beyond Ops asume la **responsabilidad operativa progresiva** de los procesos ide
 
 ---
 
-### 5. Impacto Esperado
+### 5. Modelo de Compromiso Progresivo
+
+> **El cliente solo se compromete al siguiente paso.** Cada fase genera visibilidad y resultados concretos antes de avanzar.
+
+| Fase | Compromiso | Tipo de Precio |
+|------|-----------|----------------|
+| **OpsFocus (M0)** | Firme | Precio cerrado |
+| **OpsIntelligence (M1-M3)** | Sujeto a resultados de M0 | Rango indicativo (±20-30%) |
+| **OpsScale (M4)** | Sujeto a resultados de M1-M3 | Rango indicativo (±25-35%) |
+
+**Condiciones de Progresión:**
+- Cada fase requiere aprobación explícita (Gate) antes de iniciar la siguiente
+- El presupuesto definitivo de cada fase se elabora al concluir la anterior
+- El cliente puede detener el proceso en cualquier Gate sin penalización
+
+---
+
+### 6. Impacto Esperado
+
+> **Nota:** Las métricas de impacto para las fases M1-M3 y M4 son **indicativas** y se validarán durante OpsFocus (M0).
 
 #### Métricas Operativas
 
-| Métrica | Actual | Objetivo M3 | Objetivo M4 (6 meses) |
+| Métrica | Actual | Objetivo M3 *(indicativo)* | Objetivo M4 6 meses *(indicativo)* |
 |---------|--------|-------------|------------------------|
 | CSAT | [X] | [Y] | [Z] |
 | FCR | [X%] | [Y%] | [Z%] |
@@ -168,20 +187,22 @@ Beyond Ops asume la **responsabilidad operativa progresiva** de los procesos ide
 
 #### ROI Estimado
 
-**Inversión**:
+**Inversión Comprometida (firme)**:
 - OpsFocus: [€X]
-- OpsIntelligence: [€Y]
-- OpsScale (año 1): [€Z]
-- **Total**: [€Total]
 
-**Retorno Anual Esperado**:
+**Inversión Proyectada (indicativa)**:
+- OpsIntelligence: [€Y rango bajo] – [€Y rango alto]
+- OpsScale (año 1): [€Z rango bajo] – [€Z rango alto]
+- **Total Proyectado Año 1**: [€Total rango bajo] – [€Total rango alto]
+
+**Retorno Anual Esperado** *(indicativo, sujeto a validación en M0)*:
 - Reducción de costes operativos: [€X]
 - Mejora en eficiencia: [€Y]
 - Reducción de escalado: [€Z]
 - **Total**: [€Total]
 
-**Payback**: [X meses]
-**ROI a 12 meses**: [X%]
+**Payback**: [X meses] *(estimación indicativa)*
+**ROI a 12 meses**: [X%] *(estimación indicativa)*
 
 ---
 

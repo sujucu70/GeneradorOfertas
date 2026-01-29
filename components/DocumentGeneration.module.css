@@ -260,6 +260,105 @@
   margin-bottom: 16px;
 }
 
+/* Progressive Commitment: Vision Timeline */
+.visionTimeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.phaseCard {
+  padding: 20px;
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.phaseCardFirme {
+  border: 2px solid #36B37E;
+}
+
+.phaseCardIndicativo {
+  border: 2px dashed #FFAB00;
+  opacity: 0.92;
+}
+
+.phaseBadge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.badgeFirme {
+  background: #E3FCEF;
+  color: #006644;
+}
+
+.badgeIndicativo {
+  background: #FFF4E5;
+  color: #975B00;
+}
+
+.phaseCard h4 {
+  margin-bottom: 8px;
+  color: var(--deep-navy);
+  font-size: 0.95rem;
+}
+
+.phaseCard p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.commitmentCallout {
+  background: #F0F4FF;
+  border: 1px solid var(--beyond-blue);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.commitmentCallout p {
+  font-size: 0.9rem;
+  color: var(--deep-navy);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.commitmentCallout strong {
+  color: var(--beyond-blue);
+}
+
+/* SoW scope badges */
+.scopeBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.scopeCommitted {
+  background: #E3FCEF;
+  color: #006644;
+}
+
+.scopeEstimated {
+  background: #FFF4E5;
+  color: #975B00;
+}
+
+.scopeProjected {
+  background: #EAE6FF;
+  color: #403294;
+}
+
 .actions {
   display: flex;
   justify-content: space-between;

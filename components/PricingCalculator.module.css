@@ -3,137 +3,206 @@
   margin-bottom: 24px;
 }
 
-.configSection {
-  background: var(--light-blue);
-  padding: 20px;
-  border-radius: 6px;
-  margin-bottom: 24px;
-}
-
-.configSection h3 {
-  margin-bottom: 16px;
-}
-
-.rangeInput {
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-.rangeValue {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--beyond-blue);
-  margin-bottom: 8px;
-}
-
-.hint {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-.inputsSection {
+/* ── Unit Cost Reference Strip ── */
+.unitCostRef {
   background: var(--warm-gray);
-  padding: 24px;
-  border-radius: 6px;
-  margin-bottom: 24px;
-}
-
-.inputsSection h3 {
-  margin-bottom: 20px;
-}
-
-.volumeSummary {
-  background: var(--white);
-  padding: 16px;
-  border-radius: 4px;
-  text-align: center;
-  margin: 20px 0;
-  font-size: 1.1rem;
-}
-
-.loadingState {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.loadingState p {
-  color: var(--text-primary);
-  margin-top: 16px;
-}
-
-.resultsSection {
-  margin-top: 32px;
-}
-
-.resultsSection h3 {
-  margin-bottom: 24px;
-}
-
-.summaryCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 32px;
-}
-
-.summaryCard {
-  background: var(--white);
-  border: 2px solid var(--border-color);
-  border-radius: 6px;
-  padding: 20px;
-  text-align: center;
-}
-
-.summaryCardHighlight {
-  background: var(--light-blue);
-  border-color: var(--beyond-blue);
-}
-
-.summaryLabel {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-}
-
-.summaryValue {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--deep-navy);
-  margin-bottom: 4px;
-}
-
-.summaryHint {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-}
-
-.detailsSection {
-  background: var(--white);
   border: 1px solid var(--border-color);
   border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+}
+
+.unitCostRef h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+.unitCostGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.unitCostGrid strong {
+  color: var(--deep-navy);
+}
+
+/* ── Service Section ── */
+.serviceSection {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
   padding: 24px;
   margin-bottom: 24px;
 }
 
-.detailsSection h4 {
+.serviceHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.serviceHeader h3 {
+  margin: 0;
   color: var(--deep-navy);
 }
 
-.totalRow {
+.billingModel {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
   background: var(--warm-gray);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+/* ── Margin Control ── */
+.marginControl {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--light-blue);
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.marginControl label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--deep-navy);
+  white-space: nowrap;
+}
+
+.marginControl input[type="range"] {
+  flex: 1;
+  min-width: 120px;
+}
+
+.marginValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--beyond-blue);
+  min-width: 48px;
+  text-align: right;
+}
+
+/* ── Line-item Table ── */
+.lineItemTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.lineItemTable th {
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.lineItemTable td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.lineItemTable tfoot td {
+  border-bottom: none;
+}
+
+.inlineInput {
+  width: 72px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: right;
+  background: var(--warm-gray);
+  color: var(--deep-navy);
   font-weight: 600;
 }
 
-.grandTotal {
+.inlineInput:focus {
+  outline: 2px solid var(--beyond-blue);
+  border-color: var(--beyond-blue);
+  background: var(--white);
+}
+
+.unitLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.multCell {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.subtotalRow {
+  background: var(--warm-gray);
+}
+
+.subtotalRow td {
+  font-weight: 500;
+}
+
+.totalRow {
   background: var(--light-blue);
+}
+
+.totalRow td {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--beyond-blue);
 }
 
+.grandTotalRow {
+  background: var(--deep-navy);
+}
+
+.grandTotalRow td {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--white);
+}
+
+.emptyNote {
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 16px 0;
+}
+
+/* ── Price Badges ── */
+.priceBadge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.priceBadgeFirme {
+  background: #E3FCEF;
+  color: #006644;
+}
+
+.priceBadgeIndicativo {
+  background: #FFF4E5;
+  color: #975B00;
+}
+
+/* ── Comparison Section ── */
 .comparisonSection {
   background: var(--light-green);
   border: 2px solid var(--ops-green);
@@ -149,7 +218,7 @@
 
 .comparisonCards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
 }
 
@@ -172,24 +241,73 @@
 }
 
 .comparisonLabel {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
 .comparisonValue {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--deep-navy);
   margin-bottom: 4px;
 }
 
 .comparisonHint {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: var(--ops-green);
   font-weight: 600;
 }
 
+/* ── Progressive Summary ── */
+.progressiveSummary {
+  background: #F0F4FF;
+  border: 2px solid var(--beyond-blue);
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.progressiveSummary h4 {
+  margin-bottom: 16px;
+  color: var(--beyond-blue);
+}
+
+.progressiveSummaryTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.progressiveSummaryTable th,
+.progressiveSummaryTable td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.progressiveSummaryTable th {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.projectedRow {
+  background: var(--light-blue);
+}
+
+.disclaimerBlock {
+  background: #FFF4E5;
+  border-left: 3px solid #FFAB00;
+  padding: 12px 16px;
+  border-radius: 0 4px 4px 0;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #975B00;
+  line-height: 1.5;
+}
+
+/* ── Actions Bar ── */
 .actions {
   display: flex;
   justify-content: space-between;

@@ -224,6 +224,33 @@ function Gate2Validation({ project, onApprove, onReject }: { project: Project; o
 }
 
 function Gate3Validation({ project, onApprove, onReject }: { project: Project; onApprove: () => void; onReject: () => void }) {
+  const pricing = project.pricingData
+
+  const handleDownload = async () => {
+    try {
+      const response = await fetch('/api/export-documents', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ project, format: 'markdown' }),
+      })
+
+      if (response.ok) {
+        const blob = await response.blob()
+        const url = window.URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = `propuesta-${project.clientName}-${Date.now()}.md`
+        a.click()
+        window.URL.revokeObjectURL(url)
+      } else {
+        alert('Error al exportar el documento')
+      }
+    } catch (error) {
+      console.error('Export error:', error)
+      alert('Error al exportar el documento')
+    }
+  }
+
   return (
     <div className="card fade-in">
       <div className="gate-validation">
@@ -233,7 +260,8 @@ function Gate3Validation({ project, onApprove, onReject }: { project: Project; o
 
       <h2>Documentación Generada</h2>
       <p className={styles.gateDescription}>
-        Todos los documentos han sido generados. Valide que el lenguaje es operacional y el pricing es correcto.
+        Todos los documentos han sido generados. El archivo de descarga incluye Propuesta de Valor,
+        Statement of Work y Estimación Económica en un único documento.
       </p>
 
       <div className="grid grid-2" style={{ marginTop: '24px' }}>
@@ -244,27 +272,39 @@ function Gate3Validation({ project, onApprove, onReject }: { project: Project; o
         </div>
         <div className="card">
           <h3>📋 Statement of Work</h3>
-          <p>Alcance, entregables y governance</p>
-          <p><strong>Servicios:</strong> OpsFocus + OpsIntelligence + OpsScale</p>
+          <p>Alcance comprometido: OpsFocus (M0)</p>
+          <p><strong>Fases indicativas:</strong> OpsIntelligence + OpsScale</p>
         </div>
-        <div className="card">
-          <h3>💰 Pricing</h3>
-          <p>Calculadora con fees detallados</p>
-          <p><strong>Total Año 1:</strong> {project.pricingData?.totalYear1 ? `€${project.pricingData.totalYear1.toLocaleString()}` : 'N/A'}</p>
+        <div className="card" style={{ border: '2px solid #36B37E' }}>
+          <h3 style={{ color: '#006644' }}>✅ Inversión Comprometida</h3>
+          <p>OpsFocus (M0) — Precio firme</p>
+          <p style={{ fontSize: '1.5rem', fontWeight: 700, color: '#006644' }}>
+            {pricing?.committedInvestment ? `€${pricing.committedInvestment.toLocaleString()}` : 'N/A'}
+          </p>
         </div>
-        <div className="card">
-          <h3>⚠️ Assumptions Ledger</h3>
-          <p>Supuestos y riesgos explícitos</p>
-          <p><strong>Supuestos:</strong> {project.proposalData?.assumptions?.length || 0}</p>
+        <div className="card" style={{ border: '2px dashed #FFAB00', opacity: 0.92 }}>
+          <h3 style={{ color: '#975B00' }}>📊 Proyección Total Año 1</h3>
+          <p>Rango indicativo (sujeto a validación por fases)</p>
+          <p style={{ fontSize: '1.25rem', fontWeight: 700, color: '#975B00' }}>
+            {pricing?.projectedTotalYear1Range
+              ? `€${pricing.projectedTotalYear1Range.low.toLocaleString()} – €${pricing.projectedTotalYear1Range.high.toLocaleString()}`
+              : 'N/A'}
+          </p>
         </div>
+      </div>
+
+      <div className="card" style={{ marginTop: '16px' }}>
+        <h3>⚠️ Assumptions Ledger</h3>
+        <p>Supuestos y riesgos explícitos</p>
+        <p><strong>Supuestos:</strong> {project.proposalData?.assumptions?.length || 0}</p>
       </div>
 
       <div style={{ marginTop: '32px', display: 'flex', gap: '16px', justifyContent: 'flex-end' }}>
         <button className="btn btn-secondary" onClick={onReject}>
           ← Rechazar y Ajustar
         </button>
-        <button className="btn btn-success" onClick={onApprove}>
-          ✓ Aprobar y Enviar Propuesta
+        <button className="btn btn-primary" onClick={handleDownload}>
+          Descargar Propuesta
         </button>
       </div>
     </div>

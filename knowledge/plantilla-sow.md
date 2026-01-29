@@ -9,6 +9,12 @@
 
 ---
 
+## Preámbulo: Modelo de Compromiso Progresivo
+
+> **El alcance comprometido de este SoW es Beyond OpsFocus (M0).** Las fases posteriores (OpsIntelligence y OpsScale) se describen a título indicativo para ofrecer visibilidad completa del viaje operativo. El presupuesto y alcance definitivo de cada fase posterior se formalizará mediante adenda a este SoW tras la aprobación del Gate correspondiente.
+
+---
+
 ## 1. Alcance del Proyecto
 
 ### 1.1 Objetivos
@@ -431,20 +437,28 @@ Semana 12+:   Operación productiva
 
 ## 8. Términos Comerciales
 
+> **Nota:** Este contrato cubre únicamente Beyond OpsFocus (M0). Las fases posteriores se contratarán mediante adendas independientes tras la aprobación del Gate correspondiente.
+
 ### 8.1 Modelo de Facturación
 
-**OpsFocus**:
+**OpsFocus (alcance comprometido)**:
 - Facturación: 100% contra entrega
 - Fecha: [DD/MM/YYYY]
 
-**OpsIntelligence**:
+**OpsIntelligence (sujeto a adenda post-Gate #1)**:
 - 50% al inicio de M1
 - 50% al completar M3 y Gate #2
 
-**OpsScale**:
+**OpsScale (sujeto a adenda post-Gate #2)**:
 - Facturación mensual anticipada
 - Fee base + excesos del mes anterior
 - Vencimiento: 30 días
+
+### 8.5 Condiciones de Progresión
+
+1. **Gate #1 → OpsIntelligence**: Requiere aprobación formal de las cápsulas identificadas en OpsFocus. El presupuesto definitivo de OpsIntelligence se presentará con las cápsulas aprobadas.
+2. **Gate #2 → OpsScale**: Requiere aprobación del handover de OpsIntelligence. El fee mensual de OpsScale se basará en volúmenes validados durante M1-M3.
+3. **Derecho de cancelación**: El cliente puede optar por no continuar en cualquier Gate sin penalización, abonando únicamente los servicios prestados hasta ese momento.
 
 ### 8.2 Condiciones de Pago
 

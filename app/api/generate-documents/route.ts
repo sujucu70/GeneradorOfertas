@@ -34,9 +34,9 @@ function generateMockProposal(project: any) {
   return {
     executiveSummary: `${project.clientName} enfrenta desafíos operativos en ${capsuleCount} procesos críticos de atención al cliente y backoffice que impactan directamente en costes operativos y satisfacción del cliente. Los principales pain points identificados incluyen tiempos de respuesta elevados, falta de control de volumetría y ausencia de métricas operativas consistentes.
 
-Beyond Ops propone un modelo de responsabilidad operativa progresiva que permite escalar ${capsuleCount} cápsulas operativas de forma controlada, basada en datos y con gobierno permanente. Este enfoque BPO 2.0 combina agentización inteligente de tareas repetitivas con supervisión humana estratégica, manteniendo el control total del proceso.
+Beyond Ops propone un modelo de compromiso progresivo estructurado en tres fases: Focus → Intelligence → Scale. El primer paso es Beyond OpsFocus (M0), un análisis de bajo riesgo que ofrece visibilidad completa antes de comprometer inversiones mayores. Solo tras validar los resultados de cada fase se define el alcance y presupuesto de la siguiente.
 
-Se estima una reducción de costes operativos del 30-50% en el primer año, con mejora significativa en KPIs clave (CSAT, FCR, AHT) y tiempo de implementación de 2-3 meses vs 6-12 meses del BPO tradicional.`,
+Se estima una reducción de costes operativos del 30-50% en el primer año, con mejora significativa en KPIs clave (CSAT, FCR, AHT). Las estimaciones de fases posteriores a M0 son indicativas y se convertirán en presupuestos firmes al concluir cada fase previa.`,
 
     painPoints: [
       {
@@ -119,6 +119,32 @@ Se estima una reducción de costes operativos del 30-50% en el primer año, con 
         impact: 'Medio' as const,
         probability: 'Baja' as const,
         mitigation: 'Criterios de aceptación definidos pre-UAT, iteración adicional incluida en M3, validaciones progresivas durante M2',
+      },
+    ],
+
+    // Progressive commitment fields
+    visionStatement: `Beyond Ops propone un viaje de transformación operativa en tres fases: Focus → Intelligence → Scale. Cada fase genera visibilidad y resultados concretos antes de avanzar a la siguiente. ${project.clientName} solo se compromete al siguiente paso, con total transparencia sobre la proyección completa.`,
+
+    progressiveCommitmentNote: `El único compromiso firme de esta propuesta es Beyond OpsFocus (M0): un análisis estructurado de ${capsuleCount} procesos operativos que entregará un inventario de cápsulas, recomendaciones Go/No-Go y un business case preliminar. Las fases posteriores (OpsIntelligence y OpsScale) se presentan con estimaciones indicativas que se convertirán en presupuestos firmes únicamente al concluir la fase anterior. Este modelo protege al cliente: máxima visibilidad, mínimo riesgo inicial.`,
+
+    phaseNarratives: [
+      {
+        phase: 'focus' as const,
+        title: 'Beyond OpsFocus (M0)',
+        description: 'Análisis inicial de procesos operativos. Identificación y priorización de cápsulas con recomendación Go/No-Go. Entregable: inventario de cápsulas, Assumptions Ledger y business case preliminar.',
+        certainty: 'firme' as const,
+      },
+      {
+        phase: 'intelligence' as const,
+        title: 'Beyond OpsIntelligence (M1-M3)',
+        description: 'Rediseño agentic de las cápsulas aprobadas. Prototipos funcionales, UAT y validación de KPIs. Alcance y presupuesto definitivos se definen tras completar M0.',
+        certainty: 'indicativo' as const,
+      },
+      {
+        phase: 'scale' as const,
+        title: 'Beyond OpsScale (M4)',
+        description: 'Operación productiva con SLAs, dashboard en tiempo real y governance continuo. Fee mensual basado en volúmenes reales validados en M1-M3.',
+        certainty: 'indicativo' as const,
       },
     ],
   }

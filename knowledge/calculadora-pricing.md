@@ -11,9 +11,15 @@
 
 ---
 
+## Nota sobre Compromiso Progresivo
+
+> **Solo OpsFocus (M0) tiene precio firme.** Los precios de OpsIntelligence (M1-M3) y OpsScale (M4) son **rangos indicativos** que se convertirán en presupuestos firmes al concluir la fase anterior. Los rangos indicativos tienen una variación de ±20-30% para OpsIntelligence y ±25-35% para OpsScale, en función de la complejidad real de las cápsulas aprobadas y los volúmenes validados.
+
+---
+
 ## 1. OpsFocus (M0)
 
-### Modelo de Cotización: **One-shot basado en horas**
+### Modelo de Cotización: **One-shot basado en horas** — *Precio firme*
 
 #### Inputs
 - **Jornadas de analítica**: [X jornadas]
