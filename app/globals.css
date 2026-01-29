@@ -1,0 +1,395 @@
+/* Beyond Ops - Brand Identity Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /* Colores Primarios */
+  --beyond-blue: #0052CC;
+  --ops-green: #00875A;
+  --deep-navy: #172B4D;
+
+  /* Colores Secundarios */
+  --light-blue: #DEEBFF;
+  --light-green: #E3FCEF;
+  --warm-gray: #F4F5F7;
+
+  /* Colores de Estado */
+  --warning: #FF991F;
+  --error: #DE350B;
+  --info: #0065FF;
+
+  /* Neutrales */
+  --border-color: #DFE1E6;
+  --text-primary: #172B4D;
+  --text-secondary: #5E6C84;
+  --background: #FAFBFC;
+  --white: #FFFFFF;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--deep-navy);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--beyond-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Utilidades */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--beyond-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0747A6;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--beyond-blue);
+  border: 1px solid var(--beyond-blue);
+}
+
+.btn-secondary:hover {
+  background: var(--light-blue);
+}
+
+.btn-success {
+  background: var(--ops-green);
+  color: white;
+}
+
+.btn-success:hover {
+  background: #006644;
+}
+
+.btn-warning {
+  background: var(--warning);
+  color: white;
+}
+
+.btn-warning:hover {
+  background: #FF8B00;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gate-validation {
+  background: #FFF4E5;
+  border: 2px solid var(--warning);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.gate-validation h3 {
+  color: var(--warning);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.badge-success {
+  background: var(--light-green);
+  color: var(--ops-green);
+}
+
+.badge-warning {
+  background: #FFF4E5;
+  color: var(--warning);
+}
+
+.badge-info {
+  background: var(--light-blue);
+  color: var(--beyond-blue);
+}
+
+.badge-error {
+  background: #FFEBE6;
+  color: var(--error);
+}
+
+/* Grid system */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--beyond-blue);
+  box-shadow: 0 0 0 3px var(--light-blue);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Progress indicator */
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.progress-steps::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border-color);
+  z-index: 0;
+}
+
+.progress-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.progress-step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--warm-gray);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.progress-step.active .progress-step-circle {
+  background: var(--beyond-blue);
+  border-color: var(--beyond-blue);
+  color: white;
+}
+
+.progress-step.completed .progress-step-circle {
+  background: var(--ops-green);
+  border-color: var(--ops-green);
+  color: white;
+}
+
+.progress-step-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.progress-step.active .progress-step-label {
+  color: var(--beyond-blue);
+  font-weight: 600;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  font-weight: 600;
+  color: var(--deep-navy);
+  background: var(--warm-gray);
+}
+
+tr:hover {
+  background: var(--warm-gray);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid var(--warm-gray);
+  border-top: 3px solid var(--beyond-blue);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}

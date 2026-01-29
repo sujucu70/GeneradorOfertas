@@ -1,0 +1,119 @@
+.description {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.infoBox {
+  background: var(--light-blue);
+  border-left: 4px solid var(--beyond-blue);
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+}
+
+.infoBox h4 {
+  margin-bottom: 8px;
+  color: var(--beyond-blue);
+  font-size: 1rem;
+}
+
+.infoBox p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.emptyIcon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.emptyState p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.loadingState {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loadingState p {
+  color: var(--text-primary);
+  margin-top: 16px;
+}
+
+.loadingHint {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 8px !important;
+}
+
+.capsulesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.capsulesHeader h3 {
+  margin: 0;
+}
+
+.capsulesGrid {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.capsuleCard {
+  background: var(--white);
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  padding: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.capsuleCard:hover {
+  border-color: var(--beyond-blue);
+}
+
+.capsuleHeader {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.capsuleName {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.removeBtn {
+  padding: 6px 12px;
+  font-size: 0.875rem;
+}
+
+.capsuleBody {
+  margin-bottom: 16px;
+}
+
+.capsuleFooter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}

@@ -1,0 +1,97 @@
+.description {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.uploadArea {
+  margin-top: 8px;
+}
+
+.fileInput {
+  display: none;
+}
+
+.uploadLabel {
+  display: block;
+  border: 2px dashed var(--border-color);
+  border-radius: 6px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--warm-gray);
+}
+
+.uploadLabel:hover {
+  border-color: var(--beyond-blue);
+  background: var(--light-blue);
+}
+
+.uploadIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.uploadText {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.uploadHint {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.documentList {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.documentList h3 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  color: var(--deep-navy);
+}
+
+.documentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--warm-gray);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.documentInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.documentIcon {
+  font-size: 24px;
+}
+
+.documentName {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.documentMeta {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.removeBtn {
+  padding: 6px 12px;
+  font-size: 0.875rem;
+}
+
+.actions {
+  margin-top: 32px;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,268 @@
+.description {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.emptyIcon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.emptyState p {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.loadingState {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loadingState p {
+  color: var(--text-primary);
+  margin-top: 16px;
+}
+
+.loadingHint {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 8px !important;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tab {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--beyond-blue);
+}
+
+.tabActive {
+  color: var(--beyond-blue) !important;
+  border-bottom-color: var(--beyond-blue) !important;
+}
+
+.tabContent {
+  margin-bottom: 24px;
+}
+
+.documentPreview {
+  background: var(--warm-gray);
+  padding: 24px;
+  border-radius: 6px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.documentPreview h3 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  color: var(--deep-navy);
+}
+
+.documentPreview h3:first-child {
+  margin-top: 0;
+}
+
+.content {
+  background: var(--white);
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.painPoint {
+  background: var(--white);
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--warning);
+}
+
+.painPoint h4 {
+  margin-bottom: 12px;
+  color: var(--warning);
+}
+
+.painPoint p {
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+}
+
+.capsuleSummary {
+  background: var(--white);
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--ops-green);
+}
+
+.capsuleSummary h4 {
+  margin-bottom: 8px;
+  color: var(--ops-green);
+}
+
+.capsuleSummary p {
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.kpiCard {
+  background: var(--light-green);
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.kpiCard strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.875rem;
+  color: var(--ops-green);
+}
+
+.kpiCard span {
+  font-weight: 600;
+  color: var(--deep-navy);
+}
+
+.metricCard {
+  background: var(--white);
+  padding: 16px;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.metricCard strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--beyond-blue);
+}
+
+.metricCard p {
+  font-weight: 600;
+  color: var(--deep-navy);
+  margin: 0;
+}
+
+.sowStructure {
+  display: grid;
+  gap: 20px;
+}
+
+.sowSection {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.sowSection h4 {
+  margin-bottom: 12px;
+  color: var(--deep-navy);
+}
+
+.sowSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sowSection li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+}
+
+.sowSection li:last-child {
+  border-bottom: none;
+}
+
+.assumptionsList {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 4px;
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.assumptionsList li {
+  padding: 12px;
+  background: var(--warm-gray);
+  margin-bottom: 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.assumptionsList li.warning {
+  background: #FFF4E5;
+  border-left: 4px solid var(--warning);
+}
+
+.riskCard {
+  background: var(--white);
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--error);
+}
+
+.riskCard h4 {
+  margin-bottom: 12px;
+  color: var(--error);
+}
+
+.riskMetrics {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.riskCard p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.exportActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 16px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 16px;
+}

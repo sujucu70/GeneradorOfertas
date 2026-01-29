@@ -1,0 +1,57 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: var(--deep-navy);
+  color: white;
+  padding: 24px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  color: white;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: var(--light-blue);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.main {
+  flex: 1;
+  padding: 40px 0;
+}
+
+.stepContent {
+  margin-top: 32px;
+  animation: fadeIn 0.3s ease;
+}
+
+.footer {
+  background: var(--warm-gray);
+  padding: 20px 0;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.gateDescription {
+  color: var(--text-secondary);
+  margin: 16px 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 0;
+  }
+
+  .main {
+    padding: 24px 0;
+  }
+}
