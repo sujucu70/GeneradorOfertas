@@ -20,6 +20,7 @@ export interface UploadedDocument {
   size: number
   uploadedAt: string
   content?: string
+  sourceUrl?: string
 }
 
 // OpsFocus (M0) Types

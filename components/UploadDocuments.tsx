@@ -15,6 +15,8 @@ export default function UploadDocuments({ project, setProject, onNext }: Props) 
   const [projectName, setProjectName] = useState(project.name)
   const [notes, setNotes] = useState(project.notes)
   const [uploading, setUploading] = useState(false)
+  const [urlInput, setUrlInput] = useState('')
+  const [fetchingUrl, setFetchingUrl] = useState(false)
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
@@ -61,6 +63,66 @@ export default function UploadDocuments({ project, setProject, onNext }: Props) 
     setUploading(false)
   }
 
+  const handleAddUrl = async () => {
+    const trimmed = urlInput.trim()
+    if (!trimmed) return
+
+    // Basic URL validation
+    try {
+      new URL(trimmed.startsWith('http') ? trimmed : `https://${trimmed}`)
+    } catch {
+      alert('Por favor introduce una URL válida (ej: https://ejemplo.com)')
+      return
+    }
+
+    const finalUrl = trimmed.startsWith('http') ? trimmed : `https://${trimmed}`
+
+    setFetchingUrl(true)
+
+    try {
+      const response = await fetch('/api/fetch-url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: finalUrl }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        const newDoc: UploadedDocument = {
+          id: result.data.id,
+          name: result.data.name,
+          type: 'text/html',
+          size: result.data.size,
+          uploadedAt: new Date().toISOString(),
+          content: result.data.content,
+          sourceUrl: finalUrl,
+        }
+
+        setProject({
+          ...project,
+          documents: [...project.documents, newDoc],
+        })
+
+        setUrlInput('')
+      } else {
+        alert('Error al obtener URL: ' + result.error)
+      }
+    } catch (error) {
+      console.error('Error fetching URL:', error)
+      alert('Error al conectar con el servidor')
+    } finally {
+      setFetchingUrl(false)
+    }
+  }
+
+  const handleUrlKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      handleAddUrl()
+    }
+  }
+
   const handleRemoveDocument = (docId: string) => {
     setProject({
       ...project,
@@ -75,7 +137,7 @@ export default function UploadDocuments({ project, setProject, onNext }: Props) 
     }
 
     if (project.documents.length === 0) {
-      alert('Por favor sube al menos un documento')
+      alert('Por favor sube al menos un documento o URL')
       return
     }
 
@@ -90,11 +152,13 @@ export default function UploadDocuments({ project, setProject, onNext }: Props) 
     onNext()
   }
 
+  const isBusy = uploading || fetchingUrl
+
   return (
     <div className="card fade-in">
       <h2>1. Ingesta de Documentos</h2>
       <p className={styles.description}>
-        Sube documentos del cliente (PDF, Word, emails) y añade notas manuales del equipo Beyond.
+        Sube documentos del cliente (PDF, Word, emails), añade URLs o notas manuales del equipo Beyond.
       </p>
 
       <div className="form-group">
@@ -129,6 +193,33 @@ export default function UploadDocuments({ project, setProject, onNext }: Props) 
         />
       </div>
 
+      {/* URL Input */}
+      <div className="form-group">
+        <label className="form-label">URLs del Cliente</label>
+        <p className={styles.fieldHint}>
+          Web del cliente, RFPs online, documentación pública, portales de soporte, etc.
+        </p>
+        <div className={styles.urlRow}>
+          <input
+            type="url"
+            className="form-input"
+            placeholder="https://ejemplo.com/rfp-documento"
+            value={urlInput}
+            onChange={(e) => setUrlInput(e.target.value)}
+            onKeyDown={handleUrlKeyDown}
+            disabled={fetchingUrl}
+          />
+          <button
+            className="btn btn-secondary"
+            onClick={handleAddUrl}
+            disabled={isBusy || !urlInput.trim()}
+          >
+            {fetchingUrl ? 'Cargando...' : '+ Añadir URL'}
+          </button>
+        </div>
+      </div>
+
+      {/* File Upload */}
       <div className="form-group">
         <label className="form-label">Documentos del Cliente</label>
         <div className={styles.uploadArea}>
@@ -137,7 +228,7 @@ export default function UploadDocuments({ project, setProject, onNext }: Props) 
             multiple
             accept=".pdf,.doc,.docx,.txt,.eml"
             onChange={handleFileUpload}
-            disabled={uploading}
+            disabled={isBusy}
             className={styles.fileInput}
             id="file-upload"
           />
@@ -162,15 +253,25 @@ export default function UploadDocuments({ project, setProject, onNext }: Props) 
 
         {project.documents.length > 0 && (
           <div className={styles.documentList}>
-            <h3>Documentos subidos ({project.documents.length})</h3>
+            <h3>Fuentes cargadas ({project.documents.length})</h3>
             {project.documents.map((doc) => (
               <div key={doc.id} className={styles.documentItem}>
                 <div className={styles.documentInfo}>
-                  <span className={styles.documentIcon}>📄</span>
+                  <span className={styles.documentIcon}>
+                    {doc.sourceUrl ? '🔗' : '📄'}
+                  </span>
                   <div>
                     <div className={styles.documentName}>{doc.name}</div>
                     <div className={styles.documentMeta}>
-                      {(doc.size / 1024).toFixed(1)} KB
+                      {doc.sourceUrl ? (
+                        <a href={doc.sourceUrl} target="_blank" rel="noopener noreferrer">
+                          {doc.sourceUrl.length > 60
+                            ? doc.sourceUrl.substring(0, 60) + '...'
+                            : doc.sourceUrl}
+                        </a>
+                      ) : (
+                        `${(doc.size / 1024).toFixed(1)} KB`
+                      )}
                     </div>
                   </div>
                 </div>
@@ -190,7 +291,7 @@ export default function UploadDocuments({ project, setProject, onNext }: Props) 
         <button
           className="btn btn-primary"
           onClick={handleContinue}
-          disabled={uploading}
+          disabled={isBusy}
         >
           Continuar a OpsFocus →
         </button>

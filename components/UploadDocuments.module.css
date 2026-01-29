@@ -3,6 +3,22 @@
   margin-bottom: 24px;
 }
 
+.fieldHint {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+}
+
+.urlRow {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.urlRow .form-input {
+  flex: 1;
+}
+
 .uploadArea {
   margin-top: 8px;
 }
